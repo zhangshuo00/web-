@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		.box{
+			margin: 0 auto;
+			width: 370px;
+			border: 8px solid #ffff24;
+			border-radius: 4px;
+			float: left;
+			padding-left: 0;
+		}
+		.box1{
+			margin: 0 auto;
+			margin-left: 20px;
+			width: 390px;
+			height: 255px;
+			border: 8px solid #ffbdc4;
+			border-radius: 4px;
+			float: left;
+		}
+		.but{
+			margin: 15px 20px;
+			width: 350px;
+			height: 55px;
+			color: white;
+			font:20px '微软雅黑' ;
+			background-color: #6b0e2e;
+			border-radius: 5px;
+		}
+		.add{
+			margin: 0 auto;
+			width: 90px;
+			font-weight: bold;
+			font-size: 18px;
+			margin-left: 20px;
+			float: left;
+		}
+		.hour{
+			margin: 0 auto;
+			margin-top: 3px;
+			width: 25px;
+			font-size: 15px;
+			float: left;
+		}
+		.minute{
+			margin: 0 auto;
+			margin-top: 3px;
+			font-size: 15px;
+			width: 25px;
+			float: left;
+		}
+		.intask{
+			margin: 10px 22px;
+			width: 343px;
+			height: 30px;
+		}
+		.nowDate{
+			margin: 0 auto;
+			margin-left: 25px;
+			margin-top: 10px;
+			font-size: 13px;
+			color: #807d78;
+		}
+		.addtask{
+			margin: 0 auto;
+			width: 347px;
+			height: 62px;
+			list-style: none;
+		}
+		.clock{
+			float: right;
+			margin-top: 20px;
+			margin-right: 10px;
+		}
+		.deadline{
+			float: right;
+			margin-top: 20px;
+		}
+		.taskDetail{
+			margin-top: 13px;
+		}
+		hr{
+			margin: 0 auto;
+		}
+	</style>
+</head>
+<body>
+	<ul id="box" class="box"></ul>
+	<div name ="box1" id ="box1" class="box1">
+		<button id="delTask" class="but">删除选中任务</button>
+		<p class="add">添加任务：</p>
+		<form style="width:70px; margin:0 auto;float:left;">
+			<p class="hour">时：</p>
+			<select id="hour" onchange="hour"></select>
+		</form>
+		<form style="float:left; width:70px; margin:0 auto;">
+			<p class="minute">分：</p>
+			<select id="minute" onchange="minute"></select>
+		</form>
+		<input id ="pleaseAdd" type="text" value="请填写任务详情" class="intask">
+		<button class="but" id="addTaskBut">添加任务</button>
+	</div>
+	<script type="text/javascript">
+		//预计完成小时
+		var hour = document.getElementById("hour");
+		for(var i = 0;i<24;i++){
+			var opti = document.createElement('option');
+			opti.value = i;
+			i = i<10 ? '0'+i : i;
+			opti.innerHTML = i;
+			hour.appendChild(opti);
+		}
+		//预计完成分钟
+		var minute = document.getElementById("minute");
+		for(var i = 0;i<60;i++){
+			var opti = document.createElement('option');
+			opti.value = i;
+			i = i<10 ? '0'+i : i;
+			opti.innerHTML = i;
+			minute.appendChild(opti);
+		}
+		var addTaskBut = document.getElementById('addTaskBut');
+		addTaskBut.onclick = function addTaskBut(){
+			//单击添加任务
+			var box = document.getElementById('box');
+			var creatLi = document.createElement('li');
+			creatLi.setAttribute("class", 'addtask');
+			creatLi.setAttribute('id', 'addtask');
+			box.appendChild(creatLi);
+			var line = document.createElement('hr');
+			box.appendChild(line);
+			//创建input结点
+			var taskDetail = document.createElement('input');
+			var span = document.createElement('span');
+			taskDetail.setAttribute('class', "taskDetail");
+			taskDetail.setAttribute('type', 'checkbox');
+			creatLi.appendChild(taskDetail);
+			creatLi.appendChild(span);
+			//写入任务详情
+			var taskDet = document.getElementById('pleaseAdd').value;
+			span.innerHTML += taskDet;
+			//发布时间
+			var nowTime = document.createElement('p');
+			nowTime.setAttribute('class', 'nowDate');
+			nowTime.setAttribute('id', 'nowDate');
+			creatLi.appendChild(nowTime);
+			//获取当前时间
+			var now = new Date();
+			var year = now.getFullYear();
+			var month = now.getMonth()+1;
+			var day = now.getDate();
+			var hour1 = now.getHours();
+			var minute1 = now.getMinutes();
+			month = month<10 ? '0'+month : month;
+			day = day<10 ? '0'+day : day;
+			hour1 = hour1<10 ? '0'+hour1 : hour1;
+			minute1 = minute1<10 ? '0'+minute1 : minute1;
+			nowTime.innerHTML += '发布于 '+year+"/"+month+"/"+day+"/ "+hour1+":"+minute1;
+			//图片
+			var clock = document.createElement('img');
+			clock.setAttribute('src', 'clock.png');
+			clock.setAttribute('class', 'clock');
+			creatLi.insertBefore(clock,nowTime);
+			//预计完成时间
+			var deadline = document.createElement('span');
+			deadline.setAttribute('class', 'deadline');
+			creatLi.insertBefore(deadline,clock);
+			var a = hour.value;
+			var b = minute.value;
+			a = a<10 ? '0'+a : a;
+			b = b<10 ? '0'+b : b;
+			deadline.innerHTML += a + ':' + b;
+			
+			initial();
+		}
+		//删除选中任务
+		var delTask = document.getElementById('delTask');
+		delTask.onclick = function delTask(){
+			var allInput = document.getElementsByTagName('input');
+			for(var i = 0;i<allInput.length;i++){
+				if(allInput[i].checked == true){
+					var a = allInput[i].parentNode;
+					var b = document.getElementById('box');
+					b.removeChild(a);
+					i--;
+				}
+			}
+		}
+		//初始化
+		function initial(){
+			var pleaseAdd = document.getElementById('pleaseAdd');
+			hour.value = '00';
+			minute.value = '00';
+			pleaseAdd.value =  '请填写任务详情';
+		}
+	</script>
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>LoginInterface</title>
+	<style>
+		#box{
+			width: 343px;
+			height: 285px;
+			border: 2px solid #1587e8;
+		}
+		p{
+			margin: 0 auto;
+			margin-left: 20px;
+			margin-top: 5px;
+			color: #1587e8;
+			font-size: 20px;
+		}
+		span{
+			font-size: 12px;
+		}
+		form{
+			height: 200px;
+			margin-left: 22px;
+		}
+		.input{
+			width: 304px;
+			height: 45px;
+			margin-top: 15px;
+			border: 1px solid #aca7a2;		
+		}
+		button{
+			width: 300px;
+			height: 40px;
+			margin-left: 22px;
+			margin-top: 5px;
+			background-color: #1587e8;
+			color: white;
+			border-radius: 5px;
+		}
+	</style>
+</head>
+<body>
+	<div id="box">
+		<p>Web开发二&nbsp;&nbsp;&nbsp;<span style="color: black;
+			font-size: 18px;">用户名密码登录</span></p>
+		<form action="">
+			<input class="input" type="text" name="username" id="username" placeholder="用户名">
+			<span id="tip1" style="float:left; margin-top:5px;"></span>
+			<input class="input" type="text" name="password" id="password" placeholder="密码">
+			<span id="tip2" style="float:left; width: 310px; margin-top:5px;"></span>
+			<input style="margin-top:15px; font-size: 10px;" type="checkbox" checked="checked">下次自动登录
+		</form>
+		<button>登录</button>
+	</div>
+	<script>
+		var username = document.getElementById('username');
+		var password = document.getElementById('password');
+		username.onclick = function(){
+			document.getElementById('tip1').innerHTML = "请输入6-12位用户名";
+		}
+		username.onblur = function(){
+			document.getElementById('tip1').innerHTML = "";
+		}
+		password.onclick = function(){
+			document.getElementById('tip2').innerHTML = "密码必须为数字、字母混合";
+		}
+		password.onblur = function(){
+			document.getElementById('tip2').innerHTML="";
+		}
+	</script>
+</body>
+</html>

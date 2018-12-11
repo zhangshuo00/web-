@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>QQ表情</title>
+	<style>
+		#box,#container{
+			width: 200px;
+			height: 200px;
+			overflow: auto;
+			float: left;
+			border: 1px solid #f00;
+		}
+	</style>
+</head>
+<body>
+	<div id="box"></div>
+	<div id="container"></div>
+	
+	<script>
+		// var div = document.getElementById('box');
+		// var div1 = document.getElementById('container');
+		// var sum; 
+		// for(sum=1;sum<=132;sum++){
+		// 	var img = document.createElement('img');
+		// 	img.setAttribute('src', 'img/'+sum+'.gif');
+		// 	img.setAttribute('onclick', 'div2(this)');
+		// 	document.getElementById('box').appendChild(img);
+		// }
+		// function div2(that){
+		// 	var img = document.createElement('img');
+		// 	img.setAttribute('src', that.getAttribute('src'));
+		// 	document.getElementById('container').append(img);
+		// }
+		var box = document.getElementById('box');         
+		var con = document.getElementById('container');    
+		var imgs = box.children;
+		var str = "";                
+		for(var i=1;i<=132;i++){
+			str += '<img src=img/'+i+'.gif>'
+		}
+		box.innerHTML = str;
+		var newChildt
+		for(var i=0;i<132;i++){
+			imgs[i].onclick = function(){                  
+				con.innerHTML += '<img src='+this.src+'>';
+			}
+		}
+	</script>
+
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+<script>
+	// <!-- 1.JavaScript（动态、弱类型） -->
+	// 基于对象和事件驱动的脚本语言
+		var num = 100;
+		num = "hello world";
+		console.log(typeof num);
+		console.log(num);
+	//2.5种基本数据类型
+		//隐式换行 if(undefined){}
+		consloe.log("" + 100 + 100);//字符串的拼接
+		//强制类型转换
+		parseInt("100px")
+		parseFloat("100.5px")
+		Number("1020")
+		String()
+		Boolean()
+		//运算符：加减乘除 三目运算符
+		//语句：if for while do while()
+	//3.函数（声明、参数、返回值）
+		//function fun(){}
+		//var fun = function(a,b){
+		//	return a+b;
+		//
+		//}
+		//fn(100,200);
+		//var fn = function(){}
+		// 预解析
+		// 1）先找关键字
+		// var-->undefined function-->函数体 进行提升
+		// 2）逐行执行代码，当遇到函数调用
+	//全局作用域
+		// var num = 100;
+		// //局部作用域
+		// function fun(a,b){
+		// 	var num;
+		// 	consloe.log(num);
+		// 	num = 200;
+		// 	return a + b;
+		// }
+	//4.字符串和数组
+	//5.对象（构造函数）
+		声明var obj = {name:'gj'};
+		var obj = new Object();
+		添加属性：obj.age = 100;
+		访问:obj.age<==>obj['age']
+		修改:obj.age = 300;
+		删除:delete obj.age;
+		遍历:for in
+		var obj = {
+			name:'guann';
+			age:100;
+		}
+		for(var key in obj){
+			consloe.log(key+":"+obj[key]);
+		}
+	//6.BOM(setInterval)
+	//7.Document
+	//DOM节点（对象）、DOM树
+	//	获取DOM节点
+	//	1）document.getElementById() -->节点对象
+	//	2）父节点对象.getElementByClassName() -->[,]
+	//	3)document.getElementByTagName() -->[]
+	//	节点关系获取
+	//	节点对象
+</script>
+	
+</body>
+</html>

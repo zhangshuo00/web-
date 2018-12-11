@@ -1,0 +1,176 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>任务添加删除</title>
+	<style>
+		.addde{
+			width:350px;
+			height:220px;
+			border: 5px solid pink;
+			float: left;
+		}
+		.btn{
+			background: red;
+			width: 100%;
+			height: 50px;
+			border: none;
+			margin-top: 10px;
+			color: #fff;
+			border-radius: 3px;
+		}
+		.p{
+			margin-top: 7px;
+		}
+		.tit1{
+			color: black;
+			font-size: 15px;
+		}
+		.tit2{
+			color: black;
+			font-size: 12px;
+		}
+		.tit3{
+			color: black;
+			font-size: 13px;
+			margin-left:30px;
+			margin-top: 1px;
+		}
+		.tit4{
+			margin-left: 30px;
+			font-size: 10px;
+			color:gray;
+
+		}
+		.inp{
+			width: 300px;
+			height: 35px;
+			text-indent: 8px;
+			font-size:8px;
+			display: block;
+			margin-left: 25px;
+		}
+/*		select {
+            width: 22px;
+            height: 10px;
+        }*/
+        .task{
+        	width:300px;
+        	border: 5px solid yellow;
+        	float: left;
+        }
+        .task1{
+        	width:100%;
+        	height:50px;
+        }
+        #tas1{
+        	float: left;
+        }
+        .timeclock{
+        	width: 120px;
+        	height: 100%;
+        	margin-left: 180px;
+        	margin-top: -51px;
+        	float: left;
+        }
+        #hour{
+        	width: 40px;
+        	height: 20px;
+        }
+        #minute{
+        	width: 40px;
+        	height: 20px;
+        }
+	</style>
+</head>
+<body>
+	<div class="task" id = 'big'>
+		<div class="task1" value=0>
+			<input type="checkbox" id='tas1' name = 'check'>
+			<p class="tit3">任务一</p>
+			<p class="tit4">发布于  2018/12/6 16:38</p>
+			<div class="timeclock">
+			    <img  style="float: left;" src="clock.png">
+			    <p style="float: left;margin-top: 5px;">03:00</p>
+		    </div>
+		</div>
+	</div>
+	<div class="addde">
+		<button class="btn" id= 'delete'>删除选中任务</button>
+		<p class="p">
+			<span class="tit1">添加任务:</span>
+			<span class="tit2">时:</span>
+			<select id="hour"></select>
+			<span class="tit2">分:</span>
+			<select id="minute"></select>
+		</p>
+		<input class="inp" type="text" id='input' value="请填写任务详情">
+		<button class="btn" id='add'>添加任务</button>
+	</div>
+	<script>
+		var hour = document.getElementById("hour");
+        var minute = document.getElementById("minute");
+        for(var i = 0; i<24;i++){
+			var j=i;
+			if(j<10){
+				j='0'+i;
+			}
+			hour.innerHTML+='<option>'+j+'</option>'
+		}
+		for(var i=0;i<60;i++){
+			var j=i;
+			if(j<10){
+				j='0'+i;
+			}
+			minute.innerHTML+='<option>'+j+'</option>'
+		}
+
+		var str;
+		var addbtn = document.getElementById('add');
+        addbtn.onclick=function( ){
+        	var input = document.getElementById('input');
+        	var taskname = document.getElementById('input').value;
+            var time = new Date( );
+            var year = time.getFullYear();      
+            var month = ""+time.getMonth();//+1;    
+            var day = ""+time.getDate();
+            var addtask = document.getElementById('big');
+            var houroption=hour.value;
+			var minuteoption=minute.value;
+            if(month<10){
+                month="0"+month;     
+            }
+            if(day<10){
+                day="0"+day; 
+            }
+            var h=""+time.getHours( );
+            var m=""+time.getMinutes( );
+
+                if(h<10){
+                    h="0"+h; 
+                }
+                if(m<10){ 
+                    m="0"+m; 
+                }
+            str = year+"/"+month+"/"+day+' '+h+":"+m;
+
+            addtask.innerHTML += '<div class = "task1" value=0><input type="checkbox" name = "check"><p class="tit3">'+taskname+'</p><p class="tit4">发布于'+str+'</p><div class = "timeclock"> <img  style="float: left;" src="clock.png"><p style="float: left;margin-top: 5px;">'+houroption+':'+minuteoption+'</p></div></div>'
+            hour.innerHTML+='<option>00</option>';
+            minute.innerHTML+='<option>00</option>';
+            input.value="请填写任务详情";
+            }; 
+
+
+            var deletebtn = document.getElementById('delete'); 
+            deletebtn.onclick=function(){
+            	var check = document.getElementsByName("check");
+            	for(var i=0;i<check.length;i++){
+            		if(check[i].checked==true){
+            			var detask = check[i].parentNode;
+            			detask.parentNode.removeChild(detask);
+            			}
+            			}       
+            		}
+	</script>
+</body>
+</html>
