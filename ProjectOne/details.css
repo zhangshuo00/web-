@@ -2,7 +2,7 @@
 * @Author: lenovo
 * @Date:   2018-12-18 16:51:43
 * @Last Modified by:   lenovo
-* @Last Modified time: 2019-01-05 13:11:51
+* @Last Modified time: 2019-01-05 21:35:44
 */
 *{
 	padding: 0;
@@ -11,10 +11,21 @@
 ul,li{
 	list-style: none;
 }
+a{
+	text-decoration: none;
+}
+.big{
+	width: 1350px;
+	height: 140px;
+	background-color: white;
+}
 .cover{
-	height: 175px;
+	width: 1185px;
+	height: 140px;
 	margin: 0 auto;
-	position: static;
+	margin-left: 80px;
+	background-color: white;
+	z-index: 1;
 }
 .coverTop{
 	width: 1185px;
@@ -24,7 +35,6 @@ ul,li{
 }
 .coverTop li{
 	margin: 0 auto;
-	margin-top: 4px;
 	font-size: 13px;
 	float: left;
 }
