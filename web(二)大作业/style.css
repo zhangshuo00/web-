@@ -1,0 +1,312 @@
+/*
+* @Author: lenovo
+* @Date:   2018-12-15 19:46:51
+* @Last Modified by:   lenovo
+* @Last Modified time: 2019-01-05 20:32:06
+*/
+*{
+	padding: 0;
+	margin: 0 auto;
+}
+ul,li{
+	list-style: none;
+}
+a{
+	text-decoration: none;
+}
+.big{
+	width: 1350px;
+	height: 140px;
+	background-color: white;
+}
+.cover{
+	width: 1185px;
+	height: 140px;
+	margin: 0 auto;
+	margin-left: 80px;
+	background-color: white;
+	z-index: 1;
+}
+.coverTop{
+	width: 1185px;
+	margin: 0 auto;
+	height: 26px;
+
+}
+.coverTop li{
+	margin: 0 auto;
+	font-size: 13px;
+	float: left;
+}
+.topqq{
+	width: 19px;
+	height: 23px;
+	margin-right: 18px;
+	float: left;
+}
+.topqq1{
+	margin-left: 12px;
+}
+/**/
+.coverMid{
+	margin: 0 auto;
+	width: 1185px;
+	height: 100px;
+}
+.search{
+	width:500px;
+	height:42px;
+	margin-left: 108px;
+	margin-top: 30px;
+	border-color: #fe6c00;
+	border-radius: 4px;
+}
+.butt{
+	width: 85px;
+	height: 46px;
+	margin-left: -5px;
+	background-color: #fe6c00;
+	color: white;
+	border-radius: 3px;
+	border:  #fe6c00;
+}
+/**/
+.hotline{
+	margin: 0 auto;
+	width: 86px;
+	height: 40px;
+	float: right;
+	margin-top: 34px;
+}
+.underSearch{
+	height: 24px;
+	margin: 0 auto;
+	margin-left: 250px;
+	margin-top: 5px;
+}
+.underSearch li{
+	margin-right: 18px;
+	float: left;
+	font-size: 12px;
+	text-align: center;
+}
+/**/
+.nav{
+	width: 1185px;
+	height: 50px;
+	margin: 0 auto;
+}
+.nav li{
+	float: left;
+	text-align:center;
+	font-size: 15px;
+	margin-right: 57px;
+	margin-top: 5px;
+}
+/**/
+.mainPart{
+	margin: 0 auto;
+	height: 550px;
+	width: 1185px;
+}
+.categories{
+	width: 170px;
+	height: 550px;
+	float: left;
+}
+.one li{
+	margin-top: 6px;
+	margin-bottom: 12px;
+	font-size: 15px;
+}
+.question{
+	width: 170px;
+	height: 125px;
+	float: left;
+	margin: 0 auto;
+}
+.question li{
+	margin-top: 13px;
+	font-size: 13px;
+	color: #855d38;
+}
+.question li a{
+	padding-left: 10px;
+}
+/*轮播图*/
+.carousel{
+	margin: 0 auto;
+	width:800px;
+	height: 361px;
+	float: left;
+	position: relative;
+	overflow: hidden;
+}
+.slider{
+	width: 6400px;
+	position: absolute;
+	left: -800px;
+}
+.carousel>span{
+	display: block;
+	width: 60px;
+	height: 60px;
+	text-align: center;
+	cursor: pointer;
+	color: #fff;
+	top: 150px;
+	background: red;
+	position: absolute;
+	opacity: 0;
+}
+#left{
+	left: 10px;
+	background: url(img/btn.gif);
+}
+#right{
+	right: 10px;
+	background: url(img/btn.gif) 0 -58px;
+}
+.slide{
+	width: 800px;
+	overflow: hidden;
+	float: left;
+}
+.point{
+	position: absolute;
+	left: 300px;
+	bottom: 15px;
+}
+.point>li{
+	float: left;
+	width: 20px;
+	height: 20px;
+	background: #ccc;
+	cursor: pointer;
+	margin: 0 10px;
+	border-radius: 50%;
+	text-align: center;
+}
+.point .active{
+	background: #ff4d04;
+}
+/*右侧公告*/
+.announce{
+	margin: 0 auto;
+	width: 215px;
+	height: 365px;
+	float: left;
+}
+.annotop{
+	width: 215px;
+	height: 45px;
+}
+.annotop li{
+	float: left;
+	margin-top: 15px;
+}
+.notice{
+	width: 215px;
+	height: 318px;
+	background-color: white;
+	overflow: hidden;
+}
+.notice ul li{
+	line-height: 30px;
+	font-size: 13px;
+	color: #ff4d04;
+	margin-left: 15px;
+}
+/**/
+.four{
+	width: 800px;
+	height: 185px;
+	float: left;
+	margin: 0 auto;
+}
+.four img{
+	float: left;
+}
+/*充值话费*/
+.recharge{
+	width: 215px;
+	height: 185px;
+	float: left;
+}
+.recharge li{
+	margin-left: 20px;
+	margin-top: 10px;
+}
+.chongzhi{
+	width:178px;
+	height:25px;
+	background-color:#ff4d04;
+	color: white;
+	text-align:center;
+	margin-left:20px;
+	margin-top:10px;
+	border-radius: 3px;
+	border: none;
+}
+/**/
+.more{
+	margin: 0 auto;
+	width:1185px;
+	height: 190px;
+}
+.more ul{
+	margin-top: 25px;
+	float:left;
+	margin-left:60px;
+}
+.more ul li{
+	margin-top: 10px;
+	font-size: 13px;
+}
+/**/
+.bottom{
+	margin: 0 auto;
+	width: 1185px;
+	height: 165px;
+}
+.bottom ul li{
+	float: left;
+	margin-left: 18px;
+	color: #9a9791;
+	font-size: 13px;
+}
+#rightSlider{
+	position: fixed;
+	/* height: 500px; */
+	top:25%;
+	z-index: 9;
+}
+#rightSlider div{
+	position: fixed;
+}
+#rsone{
+	width: 123px;
+	height: 60px;
+	top: 80px;
+	right: -80px;
+}
+#rstwo{
+	width: 123px;
+	height: 140px;
+	top: 190px;
+	right: -80px;
+	background-color: #ff9260;
+}
+#rsthree{
+	width: 123px;
+	height: 140px;
+	top: 330px;
+	right: -80px;
+	background-color: #ff9260;
+}
+#rsfour{
+	width: 123px;
+	height: 149px;
+	top: 470px;
+	right: -80px;
+}
